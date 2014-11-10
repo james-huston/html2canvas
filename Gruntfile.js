@@ -1,4 +1,4 @@
-/*global module:false*/
+/* jshint node: true */
 var _ =  require('lodash'), path = require('path');
 var proxy = require('html2canvas-proxy');
 
@@ -10,7 +10,11 @@ module.exports = function(grunt) {
             '  Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>' +
             '\n\n  Released under <%= _.pluck(pkg.licenses, "type").join(", ") %> License\n*/\n',
         pre: '\n(function(window, document, module, exports, global, define, undefined){\n\n',
-        post: '\n}).call({}, window, document);'
+        post: '' +
+            //'window.html2canvas = html2canvas' +
+            'if (module && module.exports) { module.exports = html2canvas; } else { window.html2canvas = html2canvas; }' +
+            '\n\n' +
+            '\n}).call({}, window, document);'
     };
 
     // Project configuration.

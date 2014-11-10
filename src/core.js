@@ -2,11 +2,11 @@ var html2canvasNodeAttribute = "data-html2canvas-node";
 var html2canvasCanvasCloneAttribute = "data-html2canvas-canvas-clone";
 var html2canvasCanvasCloneIndex = 0;
 
-window.html2canvas = function(nodeList, options) {
+var html2canvas = function(nodeList, options) {
     options = options || {};
     if (options.logging) {
-        window.html2canvas.logging = true;
-        window.html2canvas.start = Date.now();
+        html2canvas.logging = true;
+        html2canvas.start = Date.now();
     }
 
     options.async = typeof(options.async) === "undefined" ? true : options.async;
@@ -35,8 +35,8 @@ window.html2canvas = function(nodeList, options) {
     });
 };
 
-window.html2canvas.punycode = this.punycode;
-window.html2canvas.proxy = {};
+html2canvas.punycode = this.punycode;
+html2canvas.proxy = {};
 
 function renderDocument(document, options, windowWidth, windowHeight) {
     return createWindowClone(document, document, windowWidth, windowHeight, options).then(function(container) {

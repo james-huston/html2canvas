@@ -1,4 +1,6 @@
 /*
+ promise.js
+
  Copyright (c) 2013 Yehuda Katz, Tom Dale, and contributors
 
  Permission is hereby granted, free of charge, to any person obtaining a copy of
